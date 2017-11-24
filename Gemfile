@@ -13,3 +13,10 @@ gemspec
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
 
+
+# TODO cosa fare? sucessivamente o integriamo in kono_mailup oppure creiamo una nuova gemma
+gem 'omniauth-mailup', git: 'https://github.com/berk/omniauth-mailup.git'
+gem 'mailup', git: 'https://github.com/Privy/mailup-ruby.git'
+
+gem 'kono_mailup', path: '../KonoMailup'
+

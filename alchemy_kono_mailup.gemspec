@@ -5,14 +5,14 @@ require "alchemy_kono_mailup/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "alchemy_kono_mailup"
-  s.version     = AlchemyKonoMailup::VERSION
-  s.authors     = ["Marino Bonetti"]
-  s.email       = ["marinobonetti@gmail.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of AlchemyKonoMailup."
-  s.description = "TODO: Description of AlchemyKonoMailup."
-  s.license     = "MIT"
+  s.name = "alchemy_kono_mailup"
+  s.version = AlchemyKonoMailup::VERSION
+  s.authors = ["Marino Bonetti"]
+  s.email = ["marinobonetti@gmail.com"]
+  s.homepage = "https://github.com/ArchimediaZerogroup/AlchemyKonoMailup"
+  s.summary = "AlchemyKonoMailup"
+  s.description = "Plugin to integrate mailup into Alchemy"
+  s.license = "MIT"
 
   files = `git ls-files -z`.split("\x0")
 
@@ -20,15 +20,17 @@ Gem::Specification.new do |s|
   s.test_files = files.grep(%r{^(spec)/})
 
 
-  s.add_dependency "rails", "~> 4.2.10"
+  s.add_runtime_dependency 'alchemy_cms', ['~> 4.0']
+  s.add_runtime_dependency "kono_mailup", [">= 0.0.2", "< 2"]
 
 
   s.add_development_dependency "sqlite3"
-  s.add_development_dependency 'rspec-rails', '~> 3.0'
-  s.add_development_dependency 'factory_girl_rails', '~> 4.5'
-  s.add_development_dependency 'better_errors', '~> 2.1.1'
-  s.add_development_dependency 'thin', '~> 1.6.3'
-  s.add_development_dependency 'alchemy_cms', '~> 4.0'
+  s.add_development_dependency 'rspec-rails'
+  s.add_development_dependency 'factory_girl_rails'
+  s.add_development_dependency 'better_errors'
+  s.add_development_dependency 'thin'
+  s.add_development_dependency 'sass-rails'
+  s.add_development_dependency 'alchemy-devise'
 
 
 end
