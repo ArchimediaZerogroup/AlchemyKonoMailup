@@ -1,0 +1,7 @@
+Description:
+    Generate example form for newsletter subscription
+
+Example:
+    rails generate kono_mailup:subscription_form NAME
+
+    This will add to config/alchemy/elements.yml a new form element with name

@@ -1,0 +1,11 @@
+<% cache(content) do %>
+  <div class="essence_headline content_editor" id="<%= content.dom_id %>">
+    <%= label_tag(:mailup_list) %>
+
+    <%= select_tag(content.form_field_name,
+                   options_for_select(mailup_lists.collect { |e| [e[:Name], e[:idList]] }, content.ingredient),
+                   prompt: "Select Nesletter list",
+                   :id => content.form_field_id
+        ) %>
+  </div>
+<% end %>

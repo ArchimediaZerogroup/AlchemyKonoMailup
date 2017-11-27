@@ -10,6 +10,8 @@ module AlchemyKonoMailup
 
         generate 'kono_mailup:install --disable_routes'
 
+        rake 'alchemy_kono_mailup:install:migrations'
+
       end
 
 

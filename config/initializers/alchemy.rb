@@ -22,3 +22,5 @@ Alchemy::Modules.register_module({
 # Register the module ability
 # Alchemy.register_ability MyModuleAbility
 Alchemy.register_ability(AlchemyKonoMailup::Ability)
+
+Alchemy::Admin::BaseController.helper AlchemyKonoMailup::ApplicationHelper

@@ -13,6 +13,11 @@ module AlchemyKonoMailup
         can :create, AlchemyKonoMailup::Admin::TokensController
       end
 
+
+      if user.has_role?(:author) || user.has_role?(:editor) || user.has_role?(:admin)
+        can :manage, Alchemy::EssenceMailupList
+      end
+
       # can :signup, Alchemy::User
       # can :create, Alchemy::User if Alchemy::User.count == 0
 

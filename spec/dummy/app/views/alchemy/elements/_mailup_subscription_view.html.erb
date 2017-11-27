@@ -1,0 +1,7 @@
+<%- cache(element) do -%>
+  <%= element_view_for(element) do |el| -%>
+    <div class="newsletter_list">
+      <%= el.render :newsletter_list %>
+    </div>
+  <%- end -%>
+<%- end -%>
