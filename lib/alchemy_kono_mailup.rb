@@ -5,6 +5,7 @@ module AlchemyKonoMailup
   extend ActiveSupport::Autoload
 
   autoload :Engine
+  autoload :Ability
 
   eager_autoload do
 

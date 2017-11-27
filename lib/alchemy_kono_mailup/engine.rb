@@ -2,7 +2,7 @@ module AlchemyKonoMailup
   class Engine < ::Rails::Engine
     isolate_namespace AlchemyKonoMailup
 
-    require 'alchemy_kono_mailup'
+    require 'kono_mailup'
     require 'alchemy_cms'
 
 

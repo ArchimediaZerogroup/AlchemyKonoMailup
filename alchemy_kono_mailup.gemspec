@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.test_files = files.grep(%r{^(spec)/})
 
 
-  s.add_runtime_dependency 'alchemy_cms', ['~> 4.0']
+  s.add_runtime_dependency 'alchemy_cms', [">= 4.0.0.beta", "< 4.99"]
   s.add_runtime_dependency "kono_mailup", [">= 0.0.2", "< 2"]
 
 

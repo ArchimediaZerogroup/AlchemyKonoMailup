@@ -1,0 +1,9 @@
+Description:
+    Esegue le operazioni iniziali di installazione e copia di tutte le
+    configurazioni possibili
+
+Example:
+    rails generate kono_mailup:install
+
+    This will create:
+        config/initializers/kono_mailup.rb

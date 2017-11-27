@@ -26,7 +26,7 @@ PATH
   remote: .
   specs:
     alchemy_kono_mailup (0.0.1)
-      alchemy_cms (~> 4.0)
+      alchemy_cms (>= 4.0.0.beta, < 4.99)
       kono_mailup (>= 0.0.2, < 2)
 
 GEM
