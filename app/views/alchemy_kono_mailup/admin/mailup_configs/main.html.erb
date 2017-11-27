@@ -1,2 +1,19 @@
-
 <%= link_to t('.request_tokens'), '/auth/mailup' %>
+
+<% if KonoMailup::API.client_ready? %>
+  <div>
+    <h3>Mailup Lists</h3>
+
+    <dl>
+      <% @client.console.user.lists.deep_symbolize_keys[:Items].each do |i| %>
+
+        <dt><%= i[:Name] %></dt>
+        <dl><%= i[:Description] %></dl>
+
+
+      <% end %>
+    </dl>
+
+
+  </div>
+<% end %>
