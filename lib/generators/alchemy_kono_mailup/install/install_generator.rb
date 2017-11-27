@@ -8,7 +8,7 @@ module AlchemyKonoMailup
 
         route 'mount AlchemyKonoMailup::Engine => "/"'
 
-        generate 'kono_mailup:install'
+        generate 'kono_mailup:install --disable_routes'
 
       end
 
