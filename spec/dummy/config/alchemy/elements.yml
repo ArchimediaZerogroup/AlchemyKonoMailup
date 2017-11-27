@@ -22,11 +22,10 @@
   hint: true
   unique: true
   contents:
-  - name: email
-    type: EssenceText
+  - name: newsletter_list
+    type: EssenceMailupList
     validate:
       - presence
-      - format: email
   - name: newsletter_list
     type: EssenceMailupList
     validate:
