@@ -20,7 +20,6 @@
         
 - name: mailup_subscription
   hint: true
-  unique: true
   contents:
   - name: newsletter_list
     type: EssenceMailupList

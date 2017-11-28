@@ -1,27 +1,3 @@
-GIT
-  remote: https://github.com/Privy/mailup-ruby.git
-  revision: 59b7ca0a9a132de495d8ec1c47fdd4c9832d4a79
-  specs:
-    mailup (1.2.0)
-      oauth2 (~> 1.0)
-
-GIT
-  remote: https://github.com/berk/omniauth-mailup.git
-  revision: 2c834a1c6ebca1b35f55ee5cc555c905c36f7c95
-  specs:
-    omniauth-mailup (0.0.5)
-      multi_json (~> 1.10)
-      omniauth-oauth2 (~> 1.3.0)
-
-PATH
-  remote: ../KonoMailup
-  specs:
-    kono_mailup (0.0.2)
-      mailup (~> 1.2)
-      omniauth-mailup (~> 0.0.5)
-      rails
-      rails-settings-cached (~> 0.6.6)
-
 PATH
   remote: .
   specs:
@@ -172,6 +148,12 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kono_mailup (0.0.2)
+      multi_json (~> 1.10)
+      oauth2 (~> 1.0)
+      omniauth-oauth2 (~> 1.3.0)
+      rails
+      rails-settings-cached (~> 0.6.6)
     loofah (2.1.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -317,9 +299,6 @@ DEPENDENCIES
   alchemy_kono_mailup!
   better_errors
   factory_girl_rails
-  kono_mailup!
-  mailup!
-  omniauth-mailup!
   rspec-rails
   sass-rails
   sqlite3

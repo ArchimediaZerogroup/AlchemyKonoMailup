@@ -1,7 +1,5 @@
 <%- cache(element) do -%>
 
-  <%= element.inspect %>
-
   <%= element_view_for(element) do |el| -%>
 
     <% @mailup_subscription ||= MailupSubscriptionForm.new(
@@ -11,9 +9,9 @@
 
     <%= form_for(@mailup_subscription, url: main_app.mailup_subscription_forms_path) do |f| %>
 
-      <div><%= f.text_field :email %></div>
-      <div><%= f.text_field :first_name %></div>
-      <div><%= f.text_field :last_name %></div>
+      <div><%= f.label :email %><%= f.text_field :email %></div>
+      <div><%= f.label :first_name %><%= f.text_field :first_name %></div>
+      <div><%= f.label :last_name %><%= f.text_field :last_name %></div>
 
       <%= f.hidden_field :newsletter_list %>
       <%= f.hidden_field :element_id %>
