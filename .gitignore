@@ -12,3 +12,5 @@ spec/dummy/config/secrets\.yml
 alchemy-devise-master/
 
 alchemy-richmedia-essences-master/
+
+*.gem
