@@ -26,8 +26,3 @@
     type: EssenceMailupList
     validate:
       - presence
-  - name: newsletter_list
-    type: EssenceMailupList
-    validate:
-      - presence
-

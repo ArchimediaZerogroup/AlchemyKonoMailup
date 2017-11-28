@@ -12,9 +12,13 @@ module AlchemyKonoMailup
 
         form_name = options[:form_name].underscore
 
+        #controllo se già presente un form con lo stesso nome
+        elements_path = Rails.root.join('config', 'alchemy', 'elements.yml')
+        if File.foreach(elements_path).grep(/#{form_name}/).any?
 
-        append_to_file 'config/alchemy/elements.yml' do
-          <<-YML
+
+          append_to_file 'config/alchemy/elements.yml' do
+            <<-YML
         
 - name: #{form_name}
   hint: true
@@ -25,14 +29,21 @@ module AlchemyKonoMailup
     validate:
       - presence
 
-          YML
+            YML
+          end
+
+
+          generate 'alchemy:elements --skip'
+          copy_file "form_model.rb", "app/model/#{file_name}.rb"
+
+
+
+          say "Remember to add '#{form_name}' to the elements list of the desidered page layout \n"
+
+
+        else
+          say "Element with same name presente, change the name with --form_name=AnotherElementFormName"
         end
-
-
-        generate 'alchemy:elements --skip'
-
-
-        say "Remember to add '#{form_name}' to the elements list of the desidered page layout "
 
 
       end
