@@ -1,20 +1,18 @@
 <%%- cache(element) do -%>
 
-  <%%= element.inspect %>
-
   <%%= element_view_for(element) do |el| -%>
 
-    <%% @mailup_subscription ||= <%= @model_name %>.new(
+    <%% @obj ||= <%= @model_name %>.new(
         newsletter_list: element.content_by_name(:newsletter_list).ingredient,
         element_id: element.id
     ) %>
 
     <%%= form_for(@obj, url: main_app.<%= "#{@routes_route}_path" %>) do |f| %>
 
-      <div><%%= f.text_field :email %></div>
+      <div><%%= f.label :email %><%%= f.text_field :email %></div>
 
       <% symbolic_field_list.each do |f| %>
-      <div><%%= f.text_field <%=f%> %></div>
+      <div><%%= f.label <%=f%> %> <%%= f.text_field <%=f%> %></div>
       <%end%>
 
       <%%= f.hidden_field :newsletter_list %>

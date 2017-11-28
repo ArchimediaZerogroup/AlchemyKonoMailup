@@ -45,7 +45,7 @@ module AlchemyKonoMailup
           generate 'alchemy:elements --skip'
 
           @routes_route = "#{@model_name.underscore}_create"
-          route "post '#{subscription_model}',to:'#{@controller_name.underscore}#create', as: :#{@routes_route}"
+          route "post '#{subscription_model}',to:'#{@model_name.pluralize.underscore}#create', as: :#{@routes_route}"
 
           template "form_model.rb.erb", "app/models/#{@model_name.underscore}.rb"
           template "form_controller.rb.erb", "app/controllers/#{@controller_name.underscore}.rb"

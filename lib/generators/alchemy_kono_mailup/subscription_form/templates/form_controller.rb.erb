@@ -17,7 +17,7 @@ class <%=@controller_name%> < Alchemy::BaseController
           Fields: [
               <%-@custom_fields.each_with_index do |f,i| %>
               {
-                  Value: ' <%=f[:name]%> ',
+                  Value: @obj.<%=f[:name]%>,
                   Id: <%=f[:mailup_id]%>
               } <%= i==@custom_fields.length-1 ? '':',' %>
               <%-end%>
