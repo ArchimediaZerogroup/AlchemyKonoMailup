@@ -1,0 +1,70 @@
+class <%=@controller_name%> < Alchemy::BaseController
+
+  def create
+
+    @obj = <%=@model_name%>.new(clear_params)
+    @element = Alchemy::Element.find_by(id: @obj.element_id)
+    if @element.nil?
+      raise ActiveRecord::RecordNotFound, "Contact form id not found. Please pass the :element_id in a hidden field. Example:   <%%= f.hidden_field :element_id, value: element.id %> "
+    end
+    @page = @element.page
+    @root_page = @page.get_language_root
+
+    if @obj.valid?
+
+      dati_inviati = {
+          Email: @obj.email,
+          Fields: [
+              <%-@custom_fields.each_with_index do |f,i| %>
+              {
+                  Value: ' <%=f[:name]%> ',
+                  Id: <%=f[:mailup_id]%>
+              } <%= i==@custom_fields.length-1 ? '':',' %>
+              <%-end%>
+          ]
+      }
+
+      Rails.logger.debug { dati_inviati.inspect }
+
+
+      begin
+        ris = KonoMailup::API.new(debug: true).console.
+            list(@obj.newsletter_list).
+            import_recipient(dati_inviati)
+
+
+        Rails.logger.info { "Nuova subscription: #{ris}" }
+
+        if (ris>0)
+          @obj=nil
+          redirect_to root_path, notice: 'Subscription Confirmed'
+        else
+          problems_with_api
+        end
+      rescue Exception => e
+        problems_with_api(error: e)
+      end
+
+    else
+      render template: 'alchemy/pages/show'
+    end
+
+  end
+
+  private
+  def clear_params
+    params.require(<%= ":#{@model_name.underscore}" %>).
+        permit(:email,
+               :newsletter_list,
+               :element_id <%= symbolic_field_list.empty? ? '':",#{ symbolic_field_list.join(',') }" %>
+        )
+  end
+
+  def problems_with_api(error: nil)
+    Rails.logger.warn { "Mailup API Problems #{error.try(:message)}" }
+
+    @obj.errors.add(:base, :problems_with_api)
+    render template: 'alchemy/pages/show'
+  end
+
+end
